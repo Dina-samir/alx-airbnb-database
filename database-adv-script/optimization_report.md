@@ -22,8 +22,7 @@ JOIN properties p ON b.property_id = p.property_id
 JOIN payments pay ON b.booking_id = pay.booking_id;
 '''
 
-- We have run the above query before and after creating indexes
-- We see that using idexes reduce processing time
+
 
 -- Create index on payments.booking_id (used in JOINs)
 CREATE INDEX IF NOT EXISTS idx_payments_booking_id ON payments(booking_id)
@@ -33,3 +32,7 @@ CREATE INDEX IF NOT EXISTS idx_bookings_property_id ON bookings(property_id);
 
 -- Create index on bookings.user_id (used in WHERE and JOINs)
 CREATE INDEX IF NOT EXISTS idx_bookings_user_id ON bookings(user_id);
+
+- We have run the above query before and after creating indexes
+- We see that using idexes reduce processing time
+- also, filter on spcific time reduce excution time
