@@ -36,5 +36,5 @@ FROM bookings b
 JOIN users u ON b.user_id = u.user_id
 JOIN properties p ON b.property_id = p.property_id
 JOIN payments pay ON b.booking_id = pay.booking_id
-WHERE b.booking_id IS NOT NULL AND u.user_id IS NOT NULL;
+WHERE pay.payment_date < '2025-08-01' AND pay.payment_date > '2025/07/01' ; 
 
